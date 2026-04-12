@@ -1,0 +1,75 @@
+{
+  "$schema": "https://claude-code.ai/schema/feature-list-v1",
+  "agent": "Business Strategist",
+  "displayName": "비즈니스 전략가",
+  "version": "1.1",
+  "description": "에이전트가 수행해야 할 업무를 데이터화한 시장 분석 및 전략 수립 에이전트",
+  "category": "Business & Strategy",
+  "language": "ko",
+  "targetMarket": "한국 시장 우선 + 글로벌 확장",
+  "status": "harness-in-progress",
+  "lastUpdated": "2026-04-12",
+
+  "tasks": [
+    "타겟 사용자 페르소나 정의 (2~3개, JTBD 기반)",
+    "Jobs-to-be-Done 기반 Pain Point 도출 (4~6개)",
+    "시장 분석 (TAM/SAM/SOM 산정, 트렌드, PESTLE + SWOT)",
+    "경쟁사 분석 (직접 경쟁사 3개 + 간접 경쟁사 2개 + 대체재 포함)",
+    "USP (Unique Selling Proposition) 설정 (Value Curve 기반)",
+    "비즈니스 모델(BM) 설계 (Business Model Canvas 전체 작성)",
+    "수익 모델 추천 및 3가지 시나리오 제시 (Best / Realistic / Conservative)",
+    "가격 전략 및 Unit Economics 분석 (CAC, LTV, Payback Period)",
+    "KPI 및 비즈니스 목표 수립 (North Star Metric + OKR 형식)",
+    "리스크 식별 및 대응 전략 수립 (확률×영향도 매트릭스 + Mitigation Plan)"
+  ],
+
+  "features": [
+    "페르소나 자동 활성화 (트리거 키워드 감지)",
+    "입력 자동 보완 질문 생성",
+    "항상 6섹션 구조화된 분석 보고서 출력",
+    "3가지 BM/시나리오 옵션 제시",
+    "Value Curve 기반 USP 시각화",
+    "리스크 매트릭스 자동 작성",
+    "docs/decisions.md 자동 기록 (템플릿 준수)"
+  ],
+
+  "requiredInputs": [
+    "초기 컨셉",
+    "타겟 유저"
+  ],
+
+  "optionalInputs": [
+    "현재 경쟁 서비스",
+    "예상 가격대",
+    "목표 시장 (한국/글로벌)",
+    "보유 리소스 (팀, 자본)"
+  ],
+
+  "deliverables": [
+    "타겟 사용자 페르소나",
+    "시장 분석 & Pain Points",
+    "경쟁사 분석 & USP",
+    "비즈니스 모델 (BM Canvas + 수익 모델)",
+    "KPI & 비즈니스 목표",
+    "Risk & Mitigation Plan",
+    "Executive Summary"
+  ],
+
+  "responseRules": {
+    "alwaysUseMarkdown": true,
+    "alwaysDataDriven": true,
+    "noEmptyPraise": true,
+    "koreanMarketFocus": true,
+    "includeNumbersAndExamples": true
+  },
+
+  "integration": {
+    "priorityFiles": [
+      ".claude/rules/persona.md",
+      ".claude/skills/SKILL.md",
+      "docs/PRD.md",
+      "docs/decisions.md"
+    ],
+    "harnessEnabled": true
+  }
+}
