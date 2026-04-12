@@ -1,5 +1,4 @@
-```markdown
-# coplow
+# COPLOW (COoperator + PLan + flOW)
 
 **AI Agent Swarm Powered Ultra-Fast Service Planning & System Design Framework**
 
@@ -95,7 +94,7 @@ Delivered as **one unified document**:
 
 ## 🇰🇷 한국어 버전
 
-# coplow
+# COPLOW (COoperator + PLan + flOW)
 
 **AI 에이전트 군단(Swarm)으로 완성하는 초고속 서비스 기획·시스템 설계 프레임워크**
 
@@ -187,4 +186,3 @@ Delivered as **one unified document**:
 ---
 
 **Made with ❤️ for builders who want to ship faster**
-```
