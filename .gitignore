@@ -4,3 +4,13 @@ co-biz-anlyzer/docs/narrative.pdf
 co-biz-anlyzer/docs/decisions.md
 co-biz-anlyzer/harness-setting.pdf
 .DS_Store
+co-service-planner/docs/narrative.pdf
+.gitignore
+co-service-planner/src/__pycache__
+co-service-planner/.env
+co-service-planner/src/tools/__pycache__
+co-service-planner/src/tasks/__pycache__
+co-service-planner/src/agents/__pycache__
+co-service-planner/docs/decisions.md
+co-service-planner/harness.pdf
+co-biz-anlyzer/harness.pdf

@@ -1,0 +1,190 @@
+{
+  "$schema": "https://claude-code.ai/schema/feature-list-v1",
+  "agent": "Service Planner (서비스 기획자)",
+  "version": "1.1",
+  "status": "complete",
+  "triggers": [
+    "서비스 기획",
+    "기획해줘",
+    "서비스 설계",
+    "PRD 만들어줘",
+    "기능 정의",
+    "MVP 설계",
+    "User Flow",
+    "사용자 여정",
+    "기능 우선순위",
+    "초기 컨셉",
+    "서비스 기획자 모드",
+    "기획 시작"
+  ],
+  "input_requirements": {
+    "required": [
+      "초기 컨셉 (서비스/제품 설명)",
+      "타겟 유저 정보",
+      "Market Analyst 시장 분석 보고서"
+    ],
+    "optional": [
+      "경쟁사 정보",
+      "기술 스택 제약",
+      "예산 및 팀 규모",
+      "런칭 목표 일정"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "T001",
+      "name": "입력 검증",
+      "description": "Market Analyst 보고서 + 초기 컨셉 + 타겟 유저 정보 완전성 확인"
+    },
+    {
+      "id": "T002",
+      "name": "JTBD 분석",
+      "description": "사용자 Job, Pain Point, 가치 제안, USP 정의"
+    },
+    {
+      "id": "T003",
+      "name": "User Journey Map 작성",
+      "description": "7단계 Journey Map (Awareness → Advocacy)"
+    },
+    {
+      "id": "T004",
+      "name": "User Flow & IA 설계",
+      "description": "화면 단위 Flow + Conditional/Error Flow + 메뉴 트리"
+    },
+    {
+      "id": "T005",
+      "name": "기능 우선순위화",
+      "description": "MoSCoW 분류 + RICE Score 계산"
+    },
+    {
+      "id": "T006",
+      "name": "MVP 설계",
+      "description": "MVP 기능 세트 + 검증 지표 + Phase 로드맵"
+    },
+    {
+      "id": "T007",
+      "name": "PRD 보고서 작성",
+      "description": "통합 기획 보고서 + 12개 항목 검증 + decisions.md 저장"
+    }
+  ],
+  "features": [
+    {
+      "id": "F001",
+      "name": "JTBD Framework 적용",
+      "description": "사용자 Job과 Pain Point를 1문장으로 명확히 정의",
+      "priority": "Must-have",
+      "phase": 1
+    },
+    {
+      "id": "F002",
+      "name": "User Journey Mapping",
+      "description": "7단계 상세 Journey Map 작성 (Emotional State, Pain, Opportunity 포함)",
+      "priority": "Must-have",
+      "phase": 1
+    },
+    {
+      "id": "F003",
+      "name": "User Flow & IA 설계",
+      "description": "화면 단위 User Flow + Conditional Flow + Error Flow",
+      "priority": "Must-have",
+      "phase": 1
+    },
+    {
+      "id": "F004",
+      "name": "기능 우선순위화 (MoSCoW + RICE)",
+      "description": "Must/Should/Could/Won't 분류 및 RICE Score 계산",
+      "priority": "Must-have",
+      "phase": 1
+    },
+    {
+      "id": "F005",
+      "name": "MVP 설계",
+      "description": "핵심 가치만으로 동작하는 최소 기능 세트 + 검증 계획",
+      "priority": "Must-have",
+      "phase": 1
+    },
+    {
+      "id": "F006",
+      "name": "PRD 문서 작성",
+      "description": "개발·디자인·마케팅 팀이 바로 실행할 수 있는 수준의 구체적 스펙",
+      "priority": "Must-have",
+      "phase": 1
+    },
+    {
+      "id": "F007",
+      "name": "프로토타입 계획",
+      "description": "Low-fidelity / High-fidelity 프로토타입 설계 및 사용자 테스트 시나리오",
+      "priority": "Should-have",
+      "phase": 2
+    },
+    {
+      "id": "F008",
+      "name": "Phase별 로드맵",
+      "description": "Phase 1 (MVP) → Phase 2 (Iteration) → Phase 3 (Scale) 로드맵",
+      "priority": "Must-have",
+      "phase": 1
+    }
+  ],
+  "responseRules": {
+    "alwaysUseMarkdown": true,
+    "alwaysDataDriven": true,
+    "noVaguePraise": true,
+    "koreanMarketFocus": true,
+    "requireMarketAnalystReport": true,
+    "sequentialExecution": true
+  },
+  "integration": {
+    "priorityFiles": [
+      ".claude/rules/persona.md",
+      ".claude/skills/SKILL.md",
+      "docs/PRD.md",
+      "docs/decisions.md",
+      "feature_list.json",
+      "docs/workflow.md",
+      "docs/output_format.md"
+    ],
+    "harnessEnabled": true,
+    "upstream": {
+      "agent": "Market Analyst (시장 분석가)",
+      "project": "co-biz-anlyzer",
+      "inputs": [
+        "타겟 사용자 페르소나",
+        "시장 Pain Point",
+        "시장 규모 및 트렌드 (TAM/SAM/SOM)",
+        "경쟁사 분석 및 USP",
+        "추천 비즈니스 모델 (BM)",
+        "KPI 및 비즈니스 목표",
+        "기대 효과 및 리스크"
+      ],
+      "rule": "Market Analyst 보고서 없이는 기획 시작 불가"
+    },
+    "downstream": [
+      {
+        "agent": "UX/UI Designer",
+        "outputs": ["User Flow", "화면 구조", "프로토타입 요청"]
+      },
+      {
+        "agent": "Tech Lead / 개발자",
+        "outputs": ["Feasibility Review", "기술 구현 우선순위"]
+      },
+      {
+        "agent": "Growth / Marketing Agent",
+        "outputs": ["Go-to-Market 전략", "KPI 연동"]
+      }
+    ]
+  },
+  "output_files": [
+    "docs/decisions.md",
+    "docs/PRD.md",
+    "docs/workflow.md",
+    "docs/output_format.md"
+  ],
+  "deliverables": [
+    "섹션 1: 서비스 컨셉 정의 (JTBD + 가치 제안 + USP)",
+    "섹션 2: 타겟 사용자 페르소나 (2개 이상)",
+    "섹션 3: User Journey Map (7단계)",
+    "섹션 4: User Flow & IA",
+    "섹션 5: 기능 요구사항 명세 (MoSCoW + RICE)",
+    "섹션 6: MVP 정의 & Phase 로드맵"
+  ]
+}
