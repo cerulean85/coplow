@@ -11,6 +11,15 @@ co-service-planner/.env
 co-service-planner/src/tools/__pycache__
 co-service-planner/src/tasks/__pycache__
 co-service-planner/src/agents/__pycache__
-co-service-planner/docs/decisions.md
 co-service-planner/harness.pdf
 co-biz-anlyzer/harness.pdf
+co-ux-designer/.env
+co-ux-designer/__pycache__
+co-ux-designer/src/__pycache__
+co-ux-designer/src/agents/__pycache__
+co-ux-designer/src/tasks/__pycache__
+co-ux-designer/src/tools/__pycache__
+co-ux-designer/outputs/*.md
+co-ux-designer/harness.pdf
+co-service-planner/docs/target_prd.md
+co-ux-designer/docs/target_prd.md
